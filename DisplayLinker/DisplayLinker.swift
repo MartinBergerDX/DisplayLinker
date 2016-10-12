@@ -38,12 +38,16 @@ class DisplayLinker: DisplayLinkerProtocol {
         start()
     }
     
-    func start() {
+    internal func pause(should : Bool) {
+        self.linker?.isPaused = should
+    }
+    
+    internal func start() {
         self.linker = CADisplayLink.init(target: self, selector: #selector(update(displayLink:)))
         self.linker?.add(to: RunLoop.main, forMode: .defaultRunLoopMode)
     }
     
-    func stop() {
+    internal func stop() {
         self.linker?.invalidate()
         self.linker?.remove(from: RunLoop.main, forMode: .defaultRunLoopMode)
         self.zero = true
@@ -62,9 +66,5 @@ class DisplayLinker: DisplayLinkerProtocol {
         self.previous = current
         
         self.delegate?.displayWillUpdate(delta: delta!)
-    }
-    
-    func pause(should : Bool) {
-        self.linker?.isPaused = should
     }
 }
