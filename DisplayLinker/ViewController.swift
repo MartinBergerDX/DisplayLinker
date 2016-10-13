@@ -15,7 +15,7 @@ class ViewController: UIViewController, DisplayLinkerDelegate {
         self.linker = DisplayLinker.init(withDelegate: self)
     }
 
-    func displayWillUpdate(delta: TimeInterval) {
+    func displayLinkUpdate(delta: TimeInterval) {
         print(String(format: "%2.4f", delta))
     }
 }

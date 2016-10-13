@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DisplayLinkerDelegate: class {
-    func displayWillUpdate(delta: TimeInterval)
+    func displayLinkUpdate(delta: TimeInterval)
 }
 
 protocol DisplayLinkerProtocol {
@@ -69,6 +69,6 @@ class DisplayLinker: DisplayLinkerProtocol {
         
         self.previous = current
         
-        self.delegate?.displayWillUpdate(delta: delta!)
+        self.delegate?.displayLinkUpdate(delta: delta!)
     }
 }
