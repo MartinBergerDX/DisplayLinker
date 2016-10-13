@@ -33,6 +33,10 @@ class DisplayLinker: DisplayLinkerProtocol {
         
     }
     
+    deinit {
+        stop()
+    }
+    
     internal func setup(withDelegate delegate: DisplayLinkerDelegate?) {
         self.delegate = delegate
         start()
